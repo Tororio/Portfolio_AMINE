@@ -1,0 +1,21 @@
+# Fichiers système macOS
+.DS_Store
+
+# Paramètres locaux de VS Code
+.vscode/
+
+# Fichiers de logs / temporaires
+*.log
+*.tmp
+*~
+
+# node_modules (si npm utilisé un jour)
+node_modules/
+
+# Fichiers de déploiement ou cache
+.env
+.env.*
+dist/
+build/
+.cache/
+
