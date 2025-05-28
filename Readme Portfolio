@@ -1,0 +1,44 @@
+##### Mon Portfolio
+
+Bienvenue sur mon portfolio personnel. Ce projet web a été développé avec ""HTML"", ""CSS"", et ""JavaScript"" pour mettre en valeur mes compétences, mes formations, et mes réalisations.
+
+#### 🌐 Aperçu
+
+Ce site présente :
+
+- 🎓 Mes certificats (Java, Python, Coding Foundations, CANTIC)
+- 👨‍💻 Mes compétences en développement web
+- 📸 Une photo personnelle
+- 🧩 Un style personnalisé avec des scripts interactifs
+
+### 🗂️ Structure du projet
+
+'''
+Portfolio_AMINE/
+├── Pages/
+│   ├── index.html
+│   ├── Style/style.css
+│   ├── Script/script.js
+│   └── Images/
+│       ├── [certificats].pdf
+│       ├── Photo.png
+├── .gitignore
+├── README.md
+'''
+
+## 🚀 Déploiement
+
+Ce site est hébergé gratuitement sur **GitHub Pages**.
+
+🔗 Accès en ligne : [https://tororio.github.io/Portfolio_AMINE](https://tororio.github.io/Portfolio_AMINE)
+
+## 📌 Objectifs
+
+- Créer une vitrine numérique accessible en ligne
+- Partager mes compétences
+
+
+
+---
+
+Merci pour votre visite ! 🙏
