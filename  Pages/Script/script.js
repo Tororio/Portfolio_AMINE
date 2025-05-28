@@ -72,43 +72,69 @@ function initialiserBasculeModeSombre() {
         }
         body.dark-mode .submit-btn:hover,
         body.dark-mode .submit-btn:focus {
-            background: #e0556b !important;
+            background:rgb(13, 71, 230) !important;
         }
     `;
     document.head.appendChild(style);
 }
 initialiserBasculeModeSombre();
 
-// Message de bienvenue
-function afficherMessageBienvenue() {
-    const msg = document.createElement('div');
-    msg.innerHTML = `<span style="font-size:1.5em;">👋</span> Bienvenue sur mon site !`;
-    Object.assign(msg.style, {
-        position: 'fixed',
-        top: '50%',
-        left: '60%',
-        transform: 'translate(-50%, -50%) scale(1.1)',
-        background: 'linear-gradient(120deg, #43c6ac 60%, #e0556b 100%)',
-        color: '#fff',
-        padding: '26px 44px',
-        borderRadius: '18px',
-        boxShadow: '0 8px 32px rgba(67,198,172,0.18), 0 4px 16px rgba(0,0,0,0.18)',
-        zIndex: '3000',
-        fontSize: '1.25rem',
-        textAlign: 'center',
-        fontWeight: 'bold',
-        letterSpacing: '1px',
-        opacity: '0',
-        transition: 'opacity 0.6s'
-    });
-    document.body.appendChild(msg);
-    setTimeout(() => { msg.style.opacity = '1'; }, 100);
-    setTimeout(() => {
-        msg.style.opacity = '0';
-        setTimeout(() => msg.remove(), 600);
-    }, 2600);
-}
-afficherMessageBienvenue();
+//style pour le mode clair
+const styleClair = document.createElement('style');
+styleClair.textContent = `
+    body {
+        background: #f8f9fa !important;
+        color: #212529 !important;
+    }
+    section,
+    .skill-card,
+    .certification-card,
+    footer {
+        background: #fff !important;
+        color: #212529 !important;
+        box-shadow: 0 2px 16px rgba(0,0,0,0.1);
+    }
+    #sidebar {
+        background: #fff !important;
+        color: #212529 !important;
+        box-shadow: 0 2px 16px rgba(0,0,0,0.1);
+        border-right: 1px solid #dee2e6;
+    }
+        #sidebar nav ul li {
+        border-bottom: 1px solid #dee2e6;
+    }
+    #sidebar nav ul li:last-child {
+        border-bottom: none;
+    }
+    #sidebar nav ul li a {
+        padding: 12px 16px;
+        display: block;
+        text-decoration: none;
+        transition: background 0.3s, color 0.3s;
+    }
+
+    header {
+        background: linear-gradient(180deg, #f8f9fa, #43c6ac);
+        color: #212529;
+    }
+    header h1, header h2 {
+        color: #212529;
+    }
+    a, #sidebar nav ul li a {
+        color: #43c6ac !important;
+        text-decoration: none;
+    }
+    .submit-btn {
+        background: #43c6ac !important;
+        color: #fff !important;
+    }
+    .submit-btn:hover,
+    .submit-btn:focus {
+        background:rgb(11, 14, 227) !important;
+    }
+`;
+document.head.appendChild(styleClair);
+
 
 // Animation du texte dans le header (si #animated-text existe)
 document.addEventListener('DOMContentLoaded', () => {
@@ -349,3 +375,90 @@ function initialiserSidebarToggle() {
     }
 }
 document.addEventListener('DOMContentLoaded', initialiserSidebarToggle);
+// Appel de la fonction d'initialisation du sidebar
+initialiserSidebarToggle();
+// Effet de survol des liens du sidebar
+function initialiserEffetSurvolSidebar() {
+    const liens = document.querySelectorAll('#sidebar nav ul li a');
+    liens.forEach(lien => {
+        lien.addEventListener('mouseenter', () => {
+            lien.style.backgroundColor = '#43c6ac';
+            lien.style.color = '#fff';
+        });
+        lien.addEventListener('mouseleave', () => {
+            lien.style.backgroundColor = '';
+            lien.style.color = '';
+        });
+    });
+}
+document.addEventListener('DOMContentLoaded', initialiserEffetSurvolSidebar);
+// Appel de la fonction d'effet de survol des liens du sidebar
+initialiserEffetSurvolSidebar();
+// Effet de survol des boutons submit
+function initialiserEffetSurvolBoutonsSubmit() {
+    const boutons = document.querySelectorAll('.submit-btn');
+    boutons.forEach(btn => {
+        btn.addEventListener('mouseenter', () => {
+            btn.style.backgroundColor = '#e0556b';
+            btn.style.color = '#fff';
+        });
+        btn.addEventListener('mouseleave', () => {
+            btn.style.backgroundColor = '';
+            btn.style.color = '';
+        });
+    });
+}
+document.addEventListener('DOMContentLoaded', initialiserEffetSurvolBoutonsSubmit);
+// Appel de la fonction d'effet de survol des boutons submit
+initialiserEffetSurvolBoutonsSubmit();
+// Effet de survol des cartes de compétences
+function initialiserEffetSurvolCartesCompetences() {
+    const cartes = document.querySelectorAll('.skill-card');
+    cartes.forEach(carte => {
+        carte.addEventListener('mouseenter', () => {
+            carte.style.transform = 'scale(1.05)';
+            carte.style.boxShadow = '0 8px 32px rgba(67,198,172,0.18), 0 4px 16px rgba(0,0,0,0.12)';
+        });
+        carte.addEventListener('mouseleave', () => {
+            carte.style.transform = 'scale(1)';
+            carte.style.boxShadow = '';
+        });
+    });
+}
+document.addEventListener('DOMContentLoaded', initialiserEffetSurvolCartesCompetences);
+// Appel de la fonction d'effet de survol des cartes de compétences
+initialiserEffetSurvolCartesCompetences();
+// Effet de survol des cartes de certification
+function initialiserEffetSurvolCartesCertification() {
+    const cartes = document.querySelectorAll('.certification-card');
+    cartes.forEach(carte => {
+        carte.addEventListener('mouseenter', () => {
+            carte.style.transform = 'scale(1.05)';
+            carte.style.boxShadow = '0 8px 32px rgba(67,198,172,0.18), 0 4px 16px rgba(0,0,0,0.12)';
+        });
+        carte.addEventListener('mouseleave', () => {
+            carte.style.transform = 'scale(1)';
+            carte.style.boxShadow = '';
+        });
+    });
+}
+document.addEventListener('DOMContentLoaded', initialiserEffetSurvolCartesCertification);
+// Appel de la fonction d'effet de survol des cartes de certification
+initialiserEffetSurvolCartesCertification();
+// Effet de survol des cartes de projet
+function initialiserEffetSurvolCartesProjets() {
+    const cartes = document.querySelectorAll('.project-card');
+    cartes.forEach(carte => {
+        carte.addEventListener('mouseenter', () => {
+            carte.style.transform = 'scale(1.05)';
+            carte.style.boxShadow = '0 8px 32px rgba(67,198,172,0.18), 0 4px 16px rgba(0,0,0,0.12)';
+        });
+        carte.addEventListener('mouseleave', () => {
+            carte.style.transform = 'scale(1)';
+            carte.style.boxShadow = '';
+        });
+    });
+}
+document.addEventListener('DOMContentLoaded', initialiserEffetSurvolCartesProjets);
+// Appel de la fonction d'effet de survol des cartes de projet
+initialiserEffetSurvolCartesProjets();
