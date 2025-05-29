@@ -1,60 +1,21 @@
 /* ✅ Style CSS final enrichi pour correspondre au script JavaScript dynamique et aux animations intégrées */
 
 /* Reset de base */
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
+* {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
+html {
+  scroll-behavior: smooth;
+}
+
 
 body {
   font-family: 'Segoe UI', 'Roboto', Arial, sans-serif;
-  background:
-    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' opacity='0.03' width='100' height='100' viewBox='0 0 100 100'><text x='0' y='15' font-family='monospace' font-size='12'>101010</text></svg>") repeat,
-    linear-gradient(to right, #4b6cb7, #182848);
-  color: #212121;
-  line-height: 1.6;
-  min-height: 100vh;
+  color: #0f0606;
   padding-left: 300px;
-  transition: background 0.4s ease, color 0.4s ease;
-  overflow-x: hidden;
-}
-
-.dark-mode {
-  background: #181a1b url('chemin-vers-fond-binaire.png') repeat !important;
-  color: #f8f9fa !important;
-}
-
-.dark-mode section,
-.dark-mode .skill-card,
-.dark-mode .certification-card,
-.dark-mode #sidebar,
-.dark-mode footer {
-  background: #23272b !important;
-  color: #f8f9fa !important;
-  box-shadow: 0 2px 16px rgba(67,198,172,0.10);
-}
-
-.dark-mode header {
-  background: linear-gradient(180deg, #23272b, #43c6ac);
-  color: #fff;
-}
-
-.dark-mode a,
-.dark-mode #sidebar nav ul li a {
-  color: #43c6ac !important;
-}
-
-.dark-mode .submit-btn {
-  background: #43c6ac !important;
-  color: #fff !important;
-}
-
-.dark-mode .submit-btn:hover,
-.dark-mode .submit-btn:focus {
-  background: #e0556b !important;
+  
 }
 
 header {
@@ -64,16 +25,13 @@ header {
   justify-content: center;
   text-align: center;
   padding: 80px 20px;
-  background:
-    linear-gradient(rgba(15, 32, 39, 0.85), rgba(44, 83, 100, 0.85)),
-    url('chemin-vers-image-techno.jpg') center/cover no-repeat;
-  color: #fffde7;
+  color: #0215e3;
   position: relative;
   overflow: hidden;
   min-height: 400px;
   box-shadow: inset 0 -8px 24px rgba(0, 0, 0, 0.15);
   isolation: isolate;
-  transition: background 0.5s ease;
+  transition: background 0.3s ease;
 }
 
 header::after {
@@ -165,19 +123,7 @@ section h2::after {
   border-radius: 2px;
 }
 
-.skill-card {
-  background: #e3f2fd;
-  border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
-  padding: 24px 16px;
-  margin: 10px;
-  min-width: 200px;
-  flex: 1;
-  text-align: center;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  opacity: 0;
-  transform: translateY(20px);
-}
+
 
 .skill-card.show {
   opacity: 1;
@@ -187,7 +133,7 @@ section h2::after {
 .certification-card {
   background: #e3f2fd;
   border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  box-shadow: 0 2px 8px rgba(192, 11, 11, 0.04);
   padding: 26px 8px;
   margin: 1px;
   min-width: 200px;
@@ -220,46 +166,4 @@ section h2::after {
   transform: translateY(0);
 }
 
-footer {
-  background: #f8f9fa;
-  color: #212121;
-  padding: 20px;
-  text-align: center;
-  box-shadow: 0 -2px 16px rgba(0, 0, 0, 0.1);
-  position: relative;
-}
-footer a {
-  color: #1565c0;
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
-footer a:hover {
-  color: #ff0056;
-}
-footer p {
-  margin: 0;
-  font-size: 0.9rem;
-}
-#sidebar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 300px;
-  height: 100%;
-  background: #343a40;
-  color: #f8f9fa;
-  padding: 20px;
-  box-shadow: 2px 0 16px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease;
-}
-#sidebar.hidden {
-  transform: translateX(-100%);
-}
-#sidebar nav ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-#sidebar nav ul li {
-  margin: 15px 0;
-}
+
