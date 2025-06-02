@@ -192,10 +192,6 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 animerCartesCompetences();  // Appel de la fonction d'animation des cartes de compétences
-
-// Animation des cartes de projet
-
-
 // Bouton d'ouverture et de fermeture du sidebar (mobile/tablette/Ordinateur/Moniteur)
 function initialiserSidebarToggle() {
     const sidebar = document.getElementById('sidebar');
