@@ -10,23 +10,309 @@
 </head>
 
 <body>
-   <!-- Header moderne avec image scientifique et effet de texte animé -->
-<header style="display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 80px 20px; background: linear-gradient(rgba(15, 32, 39, 0.85), rgba(44, 83, 100, 0.85)), url('https://images.unsplash.com/photo-1581090700227-1e8e8d5d7f6b?auto=format&fit=crop&w=1950&q=80') center/cover no-repeat; color: white; position: relative; overflow: hidden;">
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AMINE KHALIT - Portfolio Scientifique</title>
+    <style>
+        @keyframes scrollText {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+        
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+        
+        @keyframes particlePulse {
+            0% { transform: scale(0.8); opacity: 0; }
+            50% { transform: scale(1.2); opacity: 1; }
+            100% { transform: scale(0.8); opacity: 0; }
+        }
+        
+        @keyframes quantumSpin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        .quantum-dot {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            border-radius: 50%;
+            background: #64f0ff;
+            animation: particlePulse 3s infinite ease-in-out;
+            box-shadow: 0 0 8px #64f0ff;
+        }
+        
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            overflow-x: hidden;
+        }
+    </style>
+</head>
+<body>
+    <!-- En-tête cyber-scientifique avec système de particules interactives -->
+    <header style="display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 80px 20px; background: linear-gradient(rgba(10, 25, 47, 0.9), rgba(33, 150, 243, 0.7)), url('https://images.unsplash.com/photo-1639762681057-408e52192e55?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80') center/cover no-repeat; color: white; position: relative; overflow: hidden; height: 100vh;">
 
-    <!-- Canvas pour des effets visuels animés -->
-    <canvas style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0;"></canvas>
-    <!-- Superposition pour un effet de lumière douce -->
-    <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(circle, rgba(232, 8, 34, 0.1) 0%, rgba(222, 10, 10, 0) 70%);"></div>
-    <!-- Titre principal -->
-    <h1 style="font-size: 2.8rem; margin: 0; z-index: 1; color: #2196f3;">AMINE KHALIT IBRAHIM</h1>
-    <!-- Sous-titre -->
-    <p style="font-size: 1.3rem; margin: 10px 0; z-index: 1;">Étudiant en Mathématiques et Applications</p>
-    <!-- Espace pour des éléments supplémentaires -->
-    <div style="margin-top: 20px; z-index: 1;"></div>
-    <!-- Texte animé en bas du header -->
-    <div class="animated-text" style="position: absolute; bottom: 20px; font-size: 1.2rem; font-weight: bold; color: rgba(255, 255, 255, 0.8); z-index: 1; overflow: hidden; white-space: nowrap;">
-        <span id="animated-text" style="display: inline-block; animation: scrollText 10s linear infinite;">Bienvenue sur mon portfolio - Étudiant à la recherche des opportunités professionnelles</span>
-    </div>
+        <!-- Système de particules quantiques (canvas interactif) -->
+        <canvas id="quantumParticles" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none;"></canvas>
+        
+        <!-- Effet d'intrication quantique (particules connectées) -->
+        <svg id="quantumConnections" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; pointer-events: none;"></svg>
+        
+        <!-- Points quantiques lumineux -->
+        <div id="quantumDots" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; pointer-events: none;"></div>
+        
+        <!-- Titre avec effet de diffraction lumineuse -->
+        <h1 style="font-size: clamp(2.5rem, 5vw, 3.5rem); margin: 0; z-index: 2; 
+            background: linear-gradient(90deg, #64f0ff, #2196f3, #3d5afe);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 0 12px rgba(100, 240, 255, 0.4);
+            position: relative;
+            animation: float 4s ease-in-out infinite;">
+            AMINE KHALIT
+            <!-- Effet de particules émanant du texte -->
+            <div class="particle-emitter" style="position: absolute; top: 50%; left: 0; width: 100%; height: 2px; background: transparent; z-index: -1;"></div>
+        </h1>
+        
+        <!-- Sous-titre avec effet terminal -->
+        <p style="font-size: clamp(1rem, 2vw, 1.3rem); margin: 15px 0 25px; z-index: 2; font-family: 'Courier New', monospace; position: relative;">
+            <span id="typingEffect" style="border-right: 2px solid #64f0ff; animation: blink 0.7s infinite;"></span>
+        </p>
+        
+        <!-- Badge d'état quantique -->
+        <div style="margin-top: 25px; z-index: 2; padding: 12px 24px; border-radius: 24px; 
+            background: rgba(33, 150, 243, 0.15); border: 1px solid rgba(100, 240, 255, 0.4);
+            box-shadow: 0 0 15px rgba(100, 240, 255, 0.2);
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(5px);">
+            <code style="color: #64f0ff; font-size: clamp(0.9rem, 1.5vw, 1.1rem);">public class Scientist implements Researcher, Developer {}</code>
+            <!-- Particules en orbite autour du badge -->
+            <div class="orbiting-particles" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></div>
+        </div>
+        
+        <!-- Réseau de connaissances animé -->
+        <div class="knowledge-network" style="position: absolute; bottom: 30px; width: 80%; height: 60px; z-index: 2;">
+            <svg viewBox="0 0 800 60" style="width: 100%; height: 100%;">
+                <path id="pulseWave" stroke="rgba(100, 240, 255, 0.7)" stroke-width="2" fill="none" 
+                      stroke-dasharray="10 5" style="filter: drop-shadow(0 0 5px rgba(100, 240, 255, 0.5));"></path>
+            </svg>
+        </div>
+
+        <!-- Tags scientifiques animés -->
+        <div class="animated-text" style="position: absolute; bottom: 100px; width: 90%; z-index: 1; overflow: hidden;">
+            <div style="display: inline-block; animation: scrollText 20s linear infinite; white-space: nowrap;">
+                <span style="display: inline-block; margin: 0 15px; color: rgba(100, 240, 255, 0.8);">[Machine Learning]</span>
+                <span style="display: inline-block; margin: 0 15px; color: rgba(100, 240, 255, 0.8);">[Théorie des Graphes]</span>
+                <span style="display: inline-block; margin: 0 15px; color: rgba(100, 240, 255, 0.8);">[Algorithmes Quantiques]</span>
+                <span style="display: inline-block; margin: 0 15px; color: rgba(100, 240, 255, 0.8);">[Topologie Algébrique]</span>
+                <span style="display: inline-block; margin: 0 15px; color: rgba(100, 240, 255, 0.8);">[Neural Networks]</span>
+                <span style="display: inline-block; margin: 0 15px; color: rgba(100, 240, 255, 0.8);">[Optimisation Combinatoire]</span>
+            </div>
+        </div>
+    </header>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            initQuantumParticles();
+            initTypingEffect();
+            initPulseNetwork();
+            createQuantumDots();
+            initOrbitingParticles();
+        });
+        
+        // Système de particules quantiques
+        function initQuantumParticles() {
+            const canvas = document.getElementById('quantumParticles');
+            const ctx = canvas.getContext('2d');
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            
+            const particles = [];
+            const particleCount = Math.floor(window.innerWidth / 10);
+            
+            for (let i = 0; i < particleCount; i++) {
+                particles.push({
+                    x: Math.random() * canvas.width,
+                    y: Math.random() * canvas.height,
+                    size: Math.random() * 2 + 1,
+                    speedX: Math.random() * 0.5 - 0.25,
+                    speedY: Math.random() * 0.5 - 0.25,
+                    color: `rgba(100, 240, 255, ${Math.random() * 0.5 + 0.1})`
+                });
+            }
+            
+            function animateParticles() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                
+                for (let i = 0; i < particles.length; i++) {
+                    const p = particles[i];
+                    
+                    ctx.beginPath();
+                    ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+                    ctx.fillStyle = p.color;
+                    ctx.fill();
+                    
+                    p.x += p.speedX;
+                    p.y += p.speedY;
+                    
+                    if (p.x < 0 || p.x > canvas.width) p.speedX *= -1;
+                    if (p.y < 0 || p.y > canvas.height) p.speedY *= -1;
+                }
+                
+                requestAnimationFrame(animateParticles);
+            }
+            
+            animateParticles();
+            
+            window.addEventListener('resize', function() {
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
+            });
+        }
+        
+        // Effet de frappe au clavier
+        function initTypingEffect() {
+            const textElement = document.getElementById('typingEffect');
+            const phrases = [
+                "Mathématiques Discrètes • Informatique Théorique",
+                "Complexité Algorithmique • Intelligence Artificielle",
+                "∀x ∈ {Science, Code} • Passion(x) ∧ Research(x)"
+            ];
+            let phraseIndex = 0;
+            let charIndex = 0;
+            let isDeleting = false;
+            let typingSpeed = 100;
+            
+            function type() {
+                const currentPhrase = phrases[phraseIndex];
+                
+                if (isDeleting) {
+                    textElement.textContent = currentPhrase.substring(0, charIndex - 1);
+                    charIndex--;
+                    typingSpeed = 50;
+                } else {
+                    textElement.textContent = currentPhrase.substring(0, charIndex + 1);
+                    charIndex++;
+                    typingSpeed = 100;
+                }
+                
+                if (!isDeleting && charIndex === currentPhrase.length) {
+                    isDeleting = true;
+                    typingSpeed = 1500;
+                } else if (isDeleting && charIndex === 0) {
+                    isDeleting = false;
+                    phraseIndex = (phraseIndex + 1) % phrases.length;
+                    typingSpeed = 500;
+                }
+                
+                setTimeout(type, typingSpeed);
+            }
+            
+            setTimeout(type, 1000);
+        }
+        
+        // Réseau pulsant
+        function initPulseNetwork() {
+            const pulseWave = document.getElementById('pulseWave');
+            const points = [];
+            const width = 800;
+            const height = 60;
+            
+            for (let x = 0; x <= width; x += 20) {
+                points.push({
+                    x: x,
+                    y: height / 2 + Math.sin(x / 50) * 20
+                });
+            }
+            
+            let offset = 0;
+            
+            function animateWave() {
+                let pathData = `M ${points[0].x} ${points[0].y + Math.sin(offset) * 5}`;
+                
+                for (let i = 1; i < points.length; i++) {
+                    pathData += ` L ${points[i].x} ${points[i].y + Math.sin(offset + i * 0.2) * 5}`;
+                }
+                
+                pulseWave.setAttribute('d', pathData);
+                offset += 0.05;
+                
+                requestAnimationFrame(animateWave);
+            }
+            
+            animateWave();
+        }
+        
+        // Points quantiques aléatoires
+        function createQuantumDots() {
+            const container = document.getElementById('quantumDots');
+            const dotCount = 30;
+            
+            for (let i = 0; i < dotCount; i++) {
+                const dot = document.createElement('div');
+                dot.className = 'quantum-dot';
+                dot.style.left = `${Math.random() * 100}%`;
+                dot.style.top = `${Math.random() * 100}%`;
+                dot.style.animationDelay = `${Math.random() * 3}s`;
+                container.appendChild(dot);
+            }
+        }
+        
+        // Particules en orbite
+        function initOrbitingParticles() {
+            const badges = document.querySelectorAll('.orbiting-particles');
+            
+            badges.forEach(badge => {
+                const particleCount = 8;
+                const radius = 40;
+                
+                for (let i = 0; i < particleCount; i++) {
+                    const particle = document.createElement('div');
+                    particle.style.position = 'absolute';
+                    particle.style.width = '6px';
+                    particle.style.height = '6px';
+                    particle.style.borderRadius = '50%';
+                    particle.style.background = 'rgba(100, 240, 255, 0.7)';
+                    particle.style.boxShadow = '0 0 8px #64f0ff';
+                    
+                    const angle = (i * (2 * Math.PI / particleCount));
+                    const x = 50 + radius * Math.cos(angle);
+                    const y = 50 + radius * Math.sin(angle);
+                    
+                    particle.style.left = `calc(${x}% - 3px)`;
+                    particle.style.top = `calc(${y}% - 3px)`;
+                    particle.style.animation = `quantumSpin ${10 + i}s linear infinite`;
+                    
+                    badge.appendChild(particle);
+                }
+            });
+        }
+    </script>
+</body>
+</html>
+
+<!-- Animation CSS pour le texte déroulant -->
+<style>
+@keyframes scrollText {
+    0% { transform: translateX(100%); }
+    100% { transform: translateX(-100%); }
+}
+</style>
+
 
     <style>
         @keyframes scrollText {
@@ -47,8 +333,8 @@
     <aside id="sidebar" style="position: fixed; top: 0; left: 0; height: 100%; width: 300px; background: linear-gradient(135deg, #343a40, #212529); color: white; padding: 20px; box-shadow: 3px 0 10px rgba(0, 0, 0, 0.3); z-index: 1000; display: flex; flex-direction: column; align-items: center; transition: transform 0.3s;">
         <div style="text-align: center; margin-bottom: 30px;">
             <img src="./Images/Photo.png" alt="Photo de profil" style="width: 100px; height: 100px; border-radius: 50%; border: 3px solid #f8f9fa; margin-bottom: 10px;">
-            <h2 style="font-size: 1.5rem; margin: 0; color: #f8f9fa;">AMINE KHALIT IBRAHIM</h2>
-            <p style="font-size: 0.9rem; color: #adb5bd;">Étudiant en Mathématiques</p>
+            <h2 style="font-size: 1.5rem; margin: 0; color: #f8f9fa;">KHALIT AMINE </h2>
+            <p style="font-size: 0.9rem; color: #adb5bd;">Étudiant en Mathématiques-Informatique</p>
         </div>
         <nav style="width: 100%;">
             <ul style="list-style: none; padding: 0; margin: 0; width: 100%;">
